@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desarrollo de Software</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section id="comenzar" class="cta">
+            <h1>Desarrollo de Software</h1>
+            <div id="info"></div>
+        </section>
+    </main>
+
+    <footer>
+        <span>&lt;/&gt; Desarrollo de Software</span>
+        <span>Ideas → Código → Impacto</span>
+    </footer>
+
+    <script>
+        async function getSaludo() {
+            const respuesta = await fetch('/api/saludo')
+            const datos = await respuesta.json()
+            let info = document.querySelector("#info")
+            info.innerHTML += datos.mensaje;
+            
+            console.log(datos)
+        }
+        getSaludo()
+    </script>
+</body>
+</html>
